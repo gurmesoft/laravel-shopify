@@ -190,7 +190,7 @@ final class SessionToken implements SessionTokenValue
                 ? [
                     $body['iss'] ?? '',
                     $body['sub'] ?? '',
-                    $body['sid'],
+                    $body['sid'] ?? '',
                 ]
                 : [],
         ])->notNull(self::EXCEPTION_MALFORMED);

@@ -32,6 +32,7 @@ use Osiset\ShopifyApp\Contracts\Queries\Shop as IShopQuery;
 use Osiset\ShopifyApp\Directives\SessionToken;
 use Osiset\ShopifyApp\Http\Middleware\AuthProxy;
 use Osiset\ShopifyApp\Http\Middleware\AuthWebhook;
+use Osiset\ShopifyApp\Http\Middleware\AuthFlow;
 use Osiset\ShopifyApp\Http\Middleware\Billable;
 use Osiset\ShopifyApp\Http\Middleware\IframeProtection;
 use Osiset\ShopifyApp\Http\Middleware\VerifyScopes;
@@ -329,6 +330,7 @@ class ShopifyAppProvider extends ServiceProvider
     {
         $this->app['router']->aliasMiddleware('auth.proxy', AuthProxy::class);
         $this->app['router']->aliasMiddleware('auth.webhook', AuthWebhook::class);
+        $this->app['router']->aliasMiddleware('auth.flow', AuthFlow::class);
         $this->app['router']->aliasMiddleware('billable', Billable::class);
         $this->app['router']->aliasMiddleware('verify.shopify', VerifyShopify::class);
         $this->app['router']->aliasMiddleware('verify.scopes', VerifyScopes::class);
